@@ -1,0 +1,23 @@
+name = "worker-hono-drizzle-durable-object-sqlite"
+main = "src/index.ts"
+compatibility_date = "2024-11-11"
+compatibility_flags = [ "nodejs_compat" ]
+
+durable_objects.bindings = [
+  { name = "USERS", class_name = "UsersDo"}
+]
+
+[placement]
+mode = "smart"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["UsersDo"]
+
+[[rules]] 
+type = "Text"
+globs = ["**/*.sql"]
+fallthrough = true
+
+[observability.logs]
+enabled = true

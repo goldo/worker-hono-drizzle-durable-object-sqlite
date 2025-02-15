@@ -1,0 +1,12 @@
+
+### Get all users
+curl http://127.0.0.1:8787/users
+
+### Create a user
+curl -X POST http://127.0.0.1:8787/users \
+  -H "Content-Type: application/json" \
+  -d '{"email": "rocky@balboa.com", "password": "123456"}'
+
+
+
+
